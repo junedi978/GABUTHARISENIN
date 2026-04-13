@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Putri Nadine Salwa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: bounceIn 1.5s ease;
+        }
+
+        .topics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .topic-btn {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            font-size: 1.1em;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .topic-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #ff5252, #ffb74d);
+        }
+
+        .topic-btn:active {
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.5);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .topics-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .topic-btn {
+                padding: 18px 25px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrdnNg5PElO8dGqMQcH6zEG-TzSVyCWOz2bQ&s" alt="Putri Nadine Salwa" class="profile-img">
+        <h1>Putri Nadine Salwa</h1>
+        <p>Pilih topik menarik untuk kita obrolin yuk! 💬</p>
+    </div>
+
+    <div class="topics-container">
+        <button class="topic-btn" onclick="sendWhatsApp('Halo Aku mau ngobrol tentang hobi kamu nih 😊 Apa sih yang paling kamu suka lakuin di waktu luang?')">
+            💕 Hobi & Kesukaan
+        </button>
+        
+        <button class="topic-btn" onclick="sendWhatsApp('Hai Cerita dong tentang hari ini, ada apa serunya? 🌟')">
+            ✨ Cerita Hari Ini
+        </button>
+        
+        <button class="topic-btn" onclick="sendWhatsApp( menurut kamu film series apa yang paling recommended buat ditonton malam ini? 📺')">
+            🎬 Rekomendasi Film
+        </button>
+        
+        <button class="topic-btn" onclick="sendWhatsApp('lagi ngapain sekarang? Mau curhat apa nih? 🥰')">
+            💭 Curhat Seru
+        </button>
+        
+        <button class="topic-btn" onclick="sendWhatsApp('makanan apa yang lagi pengen banget lu makan sekarang? 🍜')">
+            🍕 Foodie Talk
+        </button>
+        
+        <button class="topic-btn" onclick="sendWhatsApp('Weekend ini mau kemana Nadine? Ada rencana seru? 🏖️')">
+            🌈 Weekend Plan
+        </button>
+    </div>
+
+    <a href="https://wa.me/6289614201638?text=Halo%20Nadine!%20Senang%20kenal%20kamu%20😍" 
+       class="whatsapp-btn" target="_blank">
+        💚 Chat Langsung dengan Nadine
+    </a>
+
+    <script>
+        function sendWhatsApp(message) {
+            const phoneNumber = "089614201638";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/62${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
